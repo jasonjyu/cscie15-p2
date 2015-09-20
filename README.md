@@ -15,3 +15,4 @@ No login required.
 ## Outside code
 * Bootstrap: http://getbootstrap.com/
 * Bootstrap Theme: http://bootswatch.com/flatly/
+* jQuery Mobile Form Sliders: http://www.w3schools.com/jquerymobile/jquerymobile_form_sliders.asp
