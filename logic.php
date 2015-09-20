@@ -32,13 +32,14 @@ function loadWords($filename)
 function getOptions()
 {
     return array(
-        "letter_case"     => "strtolower",
-        "max_word_length" => 30,
-        "min_word_length" => 3,
-        "num_digits"      => 1,
-        "num_symbols"     => 1,
-        "num_words"       => 4,
-        "separator"       => "-",
+        "letter_case"         => "strtolower",
+        "min_password_length" => 8,
+        "max_word_length"     => 9,
+        "min_word_length"     => 2,
+        "min_words"           => 4,
+        "num_digits"          => 1,
+        "num_symbols"         => 1,
+        "separator"           => "-",
     );
 }
 
@@ -49,20 +50,26 @@ function getOptions()
  */
 function createPassword($words, $options)
 {
-    // form password backwards (symbols <- digits <- words) so that
-    // the last word can fulfill the min_password_length criterion
+    // form the password (words -> digits -> symbols)
     $password = "";
 
-    // prepend words to the password so the digits and symbols are at the end
-    for ($i = $options["num_words"] - 1; $i >= 0; $i--)
+    // add words to the password until the min_words and min_password_length
+    // criteria are met
+    $i = 0;
+    while ($i < $options["min_words"] ||
+           strlen($password) < $options["min_password_length"])
     {
-        $password = getWord($words, $options) . $password;
-
-        // prepend a separator if not the first word
+        // append a separator if not the first word
         if ($i != 0)
         {
-            $password = $options["separator"] . $password;
+            $password .= $options["separator"];
         }
+
+        // append word
+        $password .= getWord($words, $options);
+
+        // iterate to next word
+        $i++;
     }
 
     return $password;
