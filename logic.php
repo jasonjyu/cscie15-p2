@@ -53,11 +53,13 @@ function generatePassword($words, $options)
     // form the password (words -> digits -> symbols)
     $password = "";
 
-    // add words to the password until the min_words and min_password_length
-    // criteria are met
+    // append words to the password until the min_words and min_password_length
+    // (account for length added by digits and symbols) criteria are met
     $i = 0;
     while ($i < $options["min_words"] ||
-           strlen($password) < $options["min_password_length"])
+           strlen($password) < $options["min_password_length"] -
+                               $options["num_digits"] -
+                               $options["num_symbols"])
     {
         // append a separator if not the first word
         if ($i != 0)
@@ -70,6 +72,18 @@ function generatePassword($words, $options)
 
         // iterate to next word
         $i++;
+    }
+
+    // append num_digits digits to the password
+    for ($i = 0; $i < $options["num_digits"]; $i++)
+    {
+        $password .= generateDigit();
+    }
+
+    // append num_symbols symbols to the password
+    for ($i = 0; $i < $options["num_symbols"]; $i++)
+    {
+        $password .= generateSymbol();
     }
 
     return $password;
@@ -100,5 +114,23 @@ function generateWord($words, $options)
     $word = $options["letter_case"]($word);
 
     return $word;
+}
+
+/**
+ * Returns a random digit in the range 0-9.
+ */
+function generateDigit()
+{
+    return rand(0, 9);
+}
+
+/**
+ * Returns a special character symbol.
+ */
+function generateSymbol()
+{
+    static $symbols = "!\"#$%&'()*+,./:;<=>?@[\]^_`{|}~";
+
+    return $symbols[rand(0, strlen($symbols) - 1)];
 }
 ?>
