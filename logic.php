@@ -1,16 +1,16 @@
 <?php
-// generate an xkcd password and save it the global variable PASSWORD
-$PASSWORD = generatePassword();
+// create an xkcd password and save it the global variable PASSWORD
+$PASSWORD = createPassword();
 
 /**
- * Returns a password generated from words in the file 'words' using the options
+ * Returns a password created from words in the file 'words' using the options
  * specified in $_GET request.
  */
-function generatePassword()
+function createPassword()
 {
     $words = loadWords("words");
     $options = getOptions();
-    $password = createPassword($words, $options);
+    $password = generatePassword($words, $options);
 
     return $password;
 }
@@ -48,7 +48,7 @@ function getOptions()
  * Returns a password from the array $words that meets the criteria specified in
  * $options.
  */
-function createPassword($words, $options)
+function generatePassword($words, $options)
 {
     // form the password (words -> digits -> symbols)
     $password = "";
@@ -66,7 +66,7 @@ function createPassword($words, $options)
         }
 
         // append word
-        $password .= getWord($words, $options);
+        $password .= generateWord($words, $options);
 
         // iterate to next word
         $i++;
@@ -79,7 +79,7 @@ function createPassword($words, $options)
  * Returns a random word from the array $words that meets the criteria specified
  * in $options.
  */
-function getWord($words, $options)
+function generateWord($words, $options)
 {
     // while criteria is not met, keep selecting random words
     $is_criteria_met = FALSE;
