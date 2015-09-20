@@ -37,11 +37,11 @@ ini_set('display_errors', 1);
 -->
             <form method="get" action="index.php">
                 <label for="min_words">Min Words:</label>
-                <input id="min_words" type="range" name="min_words" value="4" min="2" max="9" data-show-value="true" data-popup-enabled="true" data-highlight="true"/>
+                <input id="min_words" type="range" name="min_words" value="<?php echo $OPTIONS["min_words"]?>" min="2" max="9" data-show-value="true" data-popup-enabled="true" data-highlight="true"/>
                 <label for="num_digits">Num Digits:</label>
-                <input id="num_digits" type="range" name="num_digits" value="0" min="0" max="3" data-show-value="true" data-popup-enabled="true" data-highlight="true"/>
+                <input id="num_digits" type="range" name="num_digits" value="<?php echo $OPTIONS["num_digits"]?>" min="0" max="3" data-show-value="true" data-popup-enabled="true" data-highlight="true"/>
                 <label for="num_symbols">Num Symbols:</label>
-                <input id="num_symbols" type="range" name="num_symbols" value="0" min="0" max="3" data-show-value="true" data-popup-enabled="true" data-highlight="true"/>
+                <input id="num_symbols" type="range" name="num_symbols" value="<?php echo $OPTIONS["num_symbols"]?>" min="0" max="3" data-show-value="true" data-popup-enabled="true" data-highlight="true"/>
                 <input type="submit" data-inline="true" value="Generate"/>
             </form>
 <!--
