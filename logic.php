@@ -1,18 +1,78 @@
 <?php
-// create an xkcd password and save it the global variable PASSWORD
-$PASSWORD = createPassword();
+#print_r($_GET);
+
+// load xkcd password criteria options from the $_GET request
+$OPTIONS = loadOptions($_GET);
+
+// generate an xkcd password using words from the file 'words' and options from
+// the $_GET request
+$PASSWORD = generatePassword(loadWords("words"), $OPTIONS);
 
 /**
- * Returns a password created from words in the file 'words' using the options
- * specified in $_GET request.
+ * Returns an associative array of options for the password read from
+ * $custom_options along with default options not specified.
  */
-function createPassword()
+function loadOptions($custom_options)
 {
-    $words = loadWords("words");
-    $options = getOptions();
-    $password = generatePassword($words, $options);
+    // create the default options
+    static $options = array(
+        "letter_case"         => "strtolower",
+        "min_password_length" => 8,
+        "max_word_length"     => 9,
+        "min_word_length"     => 2,
+        "min_words"           => 4,
+        "num_digits"          => 1,
+        "num_symbols"         => 1,
+        "separator"           => "-",
+    );
 
-    return $password;
+    // override default options with $custom_options
+    foreach ($options as $key => &$value)
+    {
+        // check if the default option exists in $custom_options
+        if (isset($custom_options[$key]))
+        {
+            // override default options if custom option value is valid
+            $custom_value = $custom_options[$key];
+            if (isOptionValid($key, $custom_value))
+            {
+                $value = $custom_value;
+            }
+        }
+    }
+
+    // break the reference with the last element
+    unset($value);
+
+    return $options;
+}
+
+/**
+ * Returns whether or not the $value of a given password option $key is valid.
+ */
+function isOptionValid($key, $value)
+{
+    $is_option_valid = TRUE;
+
+    // check if min_words is not within range
+    if ($key == "min_words" && ($value < 2 || $value > 9))
+    {
+        $is_option_valid = FALSE;
+    }
+
+    // check if num_digits is not within range
+    if ($key == "num_digits" && ($value < 0 || $value > 3))
+    {
+        $is_option_valid = FALSE;
+    }
+
+    // check if num_symbols is not within range
+    if ($key == "num_symbols" && ($value < 0 || $value > 3))
+    {
+        $is_option_valid = FALSE;
+    }
+
+    return $is_option_valid;
 }
 
 /**
@@ -25,24 +85,6 @@ function loadWords($filename)
 
     return $words;
 }
-
-/**
- * Returns an associative array of options for the password.
- */
-function getOptions()
-{
-    return array(
-        "letter_case"         => "strtolower",
-        "min_password_length" => 8,
-        "max_word_length"     => 9,
-        "min_word_length"     => 2,
-        "min_words"           => 4,
-        "num_digits"          => 1,
-        "num_symbols"         => 1,
-        "separator"           => "-",
-    );
-}
-
 
 /**
  * Returns a password from the array $words that meets the criteria specified in
@@ -95,6 +137,8 @@ function generatePassword($words, $options)
  */
 function generateWord($words, $options)
 {
+    $word = "";
+
     // while criteria is not met, keep selecting random words
     $is_criteria_met = FALSE;
     while (!$is_criteria_met)
@@ -110,7 +154,7 @@ function generateWord($words, $options)
             strlen($word) <= $options["max_word_length"];
     }
 
-    // apply the "letter_case" function to the word
+    // apply the letter_case function to the word
     $word = $options["letter_case"]($word);
 
     return $word;
