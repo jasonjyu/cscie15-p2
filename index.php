@@ -5,9 +5,9 @@ ini_set('display_errors', 1);
 <!DOCTYPE html>
 <html>
 <head>
-	<title>xkcd Password Generator</title>
+    <title>xkcd Password Generator</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <!--
     <meta name="HandheldFriendly" content="true"/>
     <meta name="MobileOptimized" content="320"/>
@@ -108,17 +108,17 @@ ini_set('display_errors', 1);
                 <br>
                 <fieldset data-role="controlgroup" data-type="horizontal">
                     <p>Separator:</p>
-                    <label for="hyphen">Hyphen</label>
+                    <label for="hyphen">-</label>
                     <input id="hyphen" type="radio"
                            name="separator"
                            value="-"
                            <?php if ($OPTIONS["separator"] == "-") echo "checked"; ?>/>
-                    <label for="plus">Plus</label>
+                    <label for="plus">+</label>
                     <input id="plus" type="radio"
                            name="separator"
                            value="+"
                            <?php if ($OPTIONS["separator"] == "+") echo "checked"; ?>/>
-                    <label for="underscore">Underscore</label>
+                    <label for="underscore">_</label>
                     <input id="underscore" type="radio"
                            name="separator"
                            value="_"
