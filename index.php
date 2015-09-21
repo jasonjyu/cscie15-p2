@@ -31,6 +31,7 @@ ini_set('display_errors', 1);
             font-size: 2em;
             font-weight: 800;
             padding: 15px;
+            word-wrap: break-word;
         }
 
         body {
@@ -65,7 +66,7 @@ ini_set('display_errors', 1);
         <div data-role="main" class="ui-content">
 -->
         <div>
-            <p class="password"><?php echo $PASSWORD?></p>
+            <p class="password"><?php echo $PASSWORD;?></p>
             <form method="get" action="index.php">
                 <input type="submit" value="Generate Password" data-inline="true"/>
                 <hr>
