@@ -17,10 +17,10 @@ function loadOptions($custom_options)
     // create the default options
     static $options = array(
         "letter_case"         => "strtolower",
-        "min_password_length" => 8,
         "max_word_length"     => 9,
+        "min_password_length" => 12,
         "min_word_length"     => 2,
-        "min_words"           => 4,
+        "min_words"           => 3,
         "num_digits"          => 1,
         "num_symbols"         => 1,
         "separator"           => "-",
@@ -54,6 +54,18 @@ function isOptionValid($key, $value)
 {
     $is_option_valid = TRUE;
 
+    // check if letter_case function does not exist
+    if ($key == "letter_case" && !function_exists($value))
+    {
+        $is_option_valid = FALSE;
+    }
+
+    // check if min_password_length is not within range
+    if ($key == "min_password_length" && ($value < 8 || $value > 32))
+    {
+        $is_option_valid = FALSE;
+    }
+
     // check if min_words is not within range
     if ($key == "min_words" && ($value < 2 || $value > 9))
     {
@@ -68,6 +80,12 @@ function isOptionValid($key, $value)
 
     // check if num_symbols is not within range
     if ($key == "num_symbols" && ($value < 0 || $value > 3))
+    {
+        $is_option_valid = FALSE;
+    }
+
+    // check if separator is not a whitespace or punctuation
+    if ($key == "separator" && !(ctype_space($value) || ctype_punct($value)))
     {
         $is_option_valid = FALSE;
     }
@@ -173,7 +191,7 @@ function generateDigit()
  */
 function generateSymbol()
 {
-    static $symbols = "!\"#$%&'()*+,./:;<=>?@[\]^_`{|}~";
+    static $symbols = "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
 
     return $symbols[rand(0, strlen($symbols) - 1)];
 }
