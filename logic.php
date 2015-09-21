@@ -17,7 +17,7 @@ function loadOptions($custom_options)
     // create the default options
     static $options = array(
         "letter_case"         => "strtolower",
-        "max_word_length"     => 9,
+        "max_word_length"     => 6,
         "min_password_length" => 12,
         "min_word_length"     => 2,
         "min_words"           => 3,
