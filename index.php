@@ -8,11 +8,6 @@ ini_set('display_errors', 1);
     <title>xkcd Password Generator</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<!--
-    <meta name="HandheldFriendly" content="true"/>
-    <meta name="MobileOptimized" content="320"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
--->
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/flatly/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
@@ -54,19 +49,10 @@ ini_set('display_errors', 1);
 </head>
 <body>
     <div class="container">
-<!--
-    <div data-role="page">
-        <div data-role="header">
--->
         <header>
             <h1>xkcd Password Generator</h1>
             <hr>
         </header>
-<!--
-        </div>
-
-        <div data-role="main" class="ui-content">
--->
         <div>
             <p class="password"><?php echo $PASSWORD;?></p>
             <form method="get" action="index.php" data-transition="none">
@@ -153,26 +139,20 @@ ini_set('display_errors', 1);
                 </fieldset>
             </form>
         </div>
-<!--
-        <div data-role="footer">
--->
         <footer>
             <hr>
             <p>
-                This page generates passwords inspired by the xkcd page
+                This page generates passwords inspired by the xkcd
                 <a href="http://xkcd.com/936/">
-                    Password Strength.
+                    Password Strength
                 </a>
+                comic strip.
                 <br>
                 <a href="http://xkcd.com/936/">
                     <img class="comic" src="http://imgs.xkcd.com/comics/password_strength.png" alt="xkcd password strength">
                 </a>
             </p>
         </footer>
-<!--
-        </div>
-    </div>
--->
     </div>
 </body>
 </html>
