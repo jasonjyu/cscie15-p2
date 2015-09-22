@@ -20,14 +20,15 @@ ini_set('display_errors', 1);
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <style>
         .container {
+            background-color: gainsboro;
             max-width: 640px;
             min-width: 320px;
             width: 100%;
         }
 
         .password {
-            background-color: #eee;
-            color: #f39c12;
+            background-color: ghostwhite;
+            color: darkorange;
             font-size: 2em;
             font-weight: 800;
             padding: 15px;
@@ -36,6 +37,7 @@ ini_set('display_errors', 1);
 
         body {
             font-family: 'PT Sans', sans-serif;
+            text-align: center;
         }
 
         hr {
@@ -67,7 +69,7 @@ ini_set('display_errors', 1);
 -->
         <div>
             <p class="password"><?php echo $PASSWORD;?></p>
-            <form method="get" action="index.php">
+            <form method="get" action="index.php" data-transition="none">
                 <input type="submit" value="Generate Password" data-inline="true"/>
                 <hr>
                 <label for="min_words">Minimum Number of Words:
@@ -133,12 +135,12 @@ ini_set('display_errors', 1);
                 <br>
                 <fieldset data-role="controlgroup" data-type="horizontal">
                     <p>Letter Case:</p>
-                    <label for="lower">Lower</label>
+                    <label for="lower">lower</label>
                     <input id="lower" type="radio"
                            name="letter_case"
                            value="strtolower"
                            <?php if ($OPTIONS["letter_case"] == "strtolower") echo "checked"; ?>/>
-                    <label for="upper">Upper</label>
+                    <label for="upper">UPPER</label>
                     <input id="upper" type="radio"
                            name="letter_case"
                            value="strtoupper"
