@@ -30,6 +30,10 @@ ini_set('display_errors', 1);
             word-wrap: break-word;
         }
 
+        .ui-slider-input {
+            pointer-events: none;
+        }
+
         body {
             font-family: 'PT Sans', sans-serif;
             text-align: center;
@@ -54,7 +58,7 @@ ini_set('display_errors', 1);
             <hr>
         </header>
         <div>
-            <p class="password"><?php echo $PASSWORD;?></p>
+            <p class="password"><?php echo $PASSWORD; ?></p>
             <form method="get" action="index.php" data-transition="none">
                 <input type="submit" value="Generate Password" data-inline="true"/>
                 <hr>

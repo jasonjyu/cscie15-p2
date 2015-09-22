@@ -61,25 +61,29 @@ function isOptionValid($key, $value)
     }
 
     // check if min_password_length is not within range
-    if ($key == "min_password_length" && ($value < 8 || $value > 32))
+    if ($key == "min_password_length" && (!ctype_digit($value) ||
+        $value < 8 || $value > 32))
     {
         $is_option_valid = FALSE;
     }
 
     // check if min_words is not within range
-    if ($key == "min_words" && ($value < 2 || $value > 9))
+    if ($key == "min_words" && (!ctype_digit($value) ||
+        $value < 2 || $value > 9))
     {
         $is_option_valid = FALSE;
     }
 
     // check if num_digits is not within range
-    if ($key == "num_digits" && ($value < 0 || $value > 3))
+    if ($key == "num_digits" && (!ctype_digit($value) ||
+        $value < 0 || $value > 3))
     {
         $is_option_valid = FALSE;
     }
 
     // check if num_symbols is not within range
-    if ($key == "num_symbols" && ($value < 0 || $value > 3))
+    if ($key == "num_symbols" && (!ctype_digit($value) ||
+        $value < 0 || $value > 3))
     {
         $is_option_valid = FALSE;
     }
