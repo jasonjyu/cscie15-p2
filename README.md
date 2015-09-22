@@ -10,7 +10,7 @@ A simple utility for generating [xkcd style passwords](http://xkcd.com/936/).
 TBD.
 
 ## Details for teaching team
-No login required.
+I wrote the shell script filter_words_file.sh to preprocess the data in usr_share_dict_words.  I used the script to filter words with lengths of 2 to 6 letters.
 
 ## Outside code
 * Bootstrap: http://getbootstrap.com/
