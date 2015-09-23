@@ -119,7 +119,7 @@ ini_set('display_errors', 1);
                            value=":"
                            <?php if ($OPTIONS["separator"] == ":") echo "checked"; ?>/>
                     <label for="space">Space</label>
-                    <label for="underscore">_</label>
+                    <label for="underscore">__</label>
                     <input id="underscore" type="radio"
                            name="separator"
                            value="_"
