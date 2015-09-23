@@ -167,6 +167,12 @@ ini_set('display_errors', 1);
                 <a href="http://xkcd.com/936/">
                     <img class="comic" src="http://imgs.xkcd.com/comics/password_strength.png" alt="xkcd password strength">
                 </a>
+                <br>
+                The list of words come from
+                <a href="http://www.wordfrequency.info">
+                    http://www.wordfrequency.info
+                </a>
+                .
             </p>
         </footer>
     </div>
