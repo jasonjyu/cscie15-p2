@@ -103,32 +103,27 @@ ini_set('display_errors', 1);
                 <br>
                 <fieldset data-role="controlgroup" data-type="horizontal">
                     <p>Separator:</p>
-                    <label for="hyphen">-</label>
+                    <label for="hyphen">&mdash;</label>
                     <input id="hyphen" type="radio"
                            name="separator"
                            value="-"
                            <?php if ($OPTIONS["separator"] == "-") echo "checked"; ?>/>
-                    <label for="plus">+</label>
-                    <input id="plus" type="radio"
-                           name="separator"
-                           value="+"
-                           <?php if ($OPTIONS["separator"] == "+") echo "checked"; ?>/>
                     <label for="period">.</label>
                     <input id="period" type="radio"
                            name="separator"
                            value="."
                            <?php if ($OPTIONS["separator"] == ".") echo "checked"; ?>/>
-                    <label for="underscore">_</label>
-                    <input id="underscore" type="radio"
-                           name="separator"
-                           value="_"
-                           <?php if ($OPTIONS["separator"] == "_") echo "checked"; ?>/>
                     <label for="colon">:</label>
                     <input id="colon" type="radio"
                            name="separator"
                            value=":"
                            <?php if ($OPTIONS["separator"] == ":") echo "checked"; ?>/>
                     <label for="space">Space</label>
+                    <label for="underscore">_</label>
+                    <input id="underscore" type="radio"
+                           name="separator"
+                           value="_"
+                           <?php if ($OPTIONS["separator"] == "_") echo "checked"; ?>/>
                     <input id="space" type="radio"
                            name="separator"
                            value=" "
