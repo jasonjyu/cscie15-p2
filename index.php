@@ -1,7 +1,9 @@
+<!--
 <?php
 error_reporting(-1); # Report all PHP errors
 ini_set('display_errors', 1);
 ?>
+-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -111,16 +113,31 @@ ini_set('display_errors', 1);
                            name="separator"
                            value="+"
                            <?php if ($OPTIONS["separator"] == "+") echo "checked"; ?>/>
+                    <label for="period">.</label>
+                    <input id="period" type="radio"
+                           name="separator"
+                           value="."
+                           <?php if ($OPTIONS["separator"] == ".") echo "checked"; ?>/>
                     <label for="underscore">_</label>
                     <input id="underscore" type="radio"
                            name="separator"
                            value="_"
                            <?php if ($OPTIONS["separator"] == "_") echo "checked"; ?>/>
+                    <label for="colon">:</label>
+                    <input id="colon" type="radio"
+                           name="separator"
+                           value=":"
+                           <?php if ($OPTIONS["separator"] == ":") echo "checked"; ?>/>
                     <label for="space">Space</label>
                     <input id="space" type="radio"
                            name="separator"
                            value=" "
                            <?php if ($OPTIONS["separator"] == " ") echo "checked"; ?>/>
+                    <label for="none">None</label>
+                    <input id="none" type="radio"
+                           name="separator"
+                           value=""
+                           <?php if ($OPTIONS["separator"] == "") echo "checked"; ?>/>
                 </fieldset>
                 <br>
                 <fieldset data-role="controlgroup" data-type="horizontal">

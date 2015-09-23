@@ -88,8 +88,9 @@ function isOptionValid($key, $value)
         $is_option_valid = FALSE;
     }
 
-    // check if separator is not a whitespace or punctuation
-    if ($key == "separator" && !(ctype_space($value) || ctype_punct($value)))
+    // check if separator is not an empty string, whitespace or punctuation
+    if ($key == "separator" && !($value === "" ||
+        ctype_space($value) || ctype_punct($value)))
     {
         $is_option_valid = FALSE;
     }
@@ -199,4 +200,3 @@ function generateSymbol()
 
     return $symbols[rand(0, strlen($symbols) - 1)];
 }
-?>
