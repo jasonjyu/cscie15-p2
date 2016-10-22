@@ -21,3 +21,5 @@ I downloaded the list of words from <http://www.wordfrequency.info> into the fil
 * Bootstrap Theme: http://bootswatch.com/flatly/
 * jQuery Mobile Form Sliders: http://www.w3schools.com/jquerymobile/jquerymobile_form_sliders.asp
 * jQuery Mobile Form Radio Buttons: http://www.w3schools.com/jquerymobile/jquerymobile_form_inputs.asp
+
+&copy; 2016
