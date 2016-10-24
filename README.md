@@ -1,7 +1,7 @@
 # Project 2: PHP Basics
 
 ## Live URL
-<http://p2.lengjai.me>
+[http://p2.lengjai.me](http://198.199.71.252/p2/)
 
 ## Description
 A simple utility for generating [xkcd style passwords](http://xkcd.com/936/).
